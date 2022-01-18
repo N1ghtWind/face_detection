@@ -44,7 +44,7 @@ async function recognizeFaces() {
            
             const resizedDetections = faceapi.resizeResults(detections, displaySize)
 
-            document.getElementById("current_faces").innerText = resizedDetections.length;  
+            document.getElementById("curr").innerText = resizedDetections.length;  
 
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
 
@@ -78,7 +78,7 @@ async function recognizeFaces() {
 
 function loadLabeledImages() {
     //const labels = ['Black Widow', 'Captain America', 'Hawkeye' , 'Jim Rhodes', 'Tony Stark', 'Thor', 'Captain Marvel']
-    const labels = ['Jozsi'] // for WebCam
+    const labels = ['Krisztian','Jozsi'] // for WebCam
     return Promise.all(
         labels.map(async (label)=>{
             const descriptions = []
