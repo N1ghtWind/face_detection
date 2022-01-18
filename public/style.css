@@ -1,0 +1,28 @@
+html{
+    background-image:url("background.jpg");
+}
+
+h1
+{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+    color:#ffffff;
+    font-family: 'Montserrat', sans-serif;
+}
+#num,#All{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 25px;
+    color:#ffffff;
+}
+
+#videoInput {
+    text-align: center;
+  }
+
+  #curr,#current_faces {
+    font-family: 'Montserrat', sans-serif;
+    color:#fff;
+  }

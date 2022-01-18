@@ -26,7 +26,7 @@ async function recognizeFaces() {
 
     const labeledDescriptors = await loadLabeledImages()
     console.log(labeledDescriptors)
-    const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors, 0.4)
+    const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors, 0.7)
 
 
     video.addEventListener('play', async () => {
@@ -44,7 +44,7 @@ async function recognizeFaces() {
            
             const resizedDetections = faceapi.resizeResults(detections, displaySize)
 
-            document.getElementById("current_faces").innerText = resizedDetections.length;  
+            document.getElementById("curr").innerText = resizedDetections.length;  
 
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
 
@@ -56,7 +56,7 @@ async function recognizeFaces() {
               
                 const box = resizedDetections[i].detection.box
                 const gender = resizedDetections[i].gender;
-                result._distance = (100 - (result._distance * 100)).toFixed(2).toString() + "%" ;
+                result._distance = ((100 - (result._distance * 100))* 1.5).toFixed(2).toString() + "%" ;
                 const drawBox = new faceapi.draw.DrawBox(box, { label: result._label + " | " + result._distance + " | " + gender })
                
                 drawBox.draw(canvas)
@@ -71,7 +71,7 @@ async function recognizeFaces() {
 
 function loadLabeledImages() {
     //const labels = ['Black Widow', 'Captain America', 'Hawkeye' , 'Jim Rhodes', 'Tony Stark', 'Thor', 'Captain Marvel']
-    const labels = ['Jozsi'] // for WebCam
+    const labels = ['Krisztian','Jozsi'] // for WebCam
     return Promise.all(
         labels.map(async (label)=>{
             const descriptions = []
