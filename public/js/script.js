@@ -26,7 +26,7 @@ async function recognizeFaces() {
 
     const labeledDescriptors = await loadLabeledImages()
     console.log(labeledDescriptors)
-    const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors, 0.4)
+    const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors, 0.5)
 
 
     video.addEventListener('play', async () => {
@@ -56,7 +56,14 @@ async function recognizeFaces() {
               
                 const box = resizedDetections[i].detection.box
                 const gender = resizedDetections[i].gender;
-                result._distance = (100 - (result._distance * 100)).toFixed(2).toString() + "%" ;
+                let percentage_value = ((100 - (result._distance * 100)) * 1.5)
+
+                if(percentage_value >= 100) {
+                    percentage_value = 100;
+                }
+
+                result._distance = percentage_value.toFixed(2).toString() + "%" ;
+
                 const drawBox = new faceapi.draw.DrawBox(box, { label: result._label + " | " + result._distance + " | " + gender })
                
                 drawBox.draw(canvas)
