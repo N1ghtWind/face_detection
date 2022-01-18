@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Recognition</title>
     <style>
+        p {
+            text-align: center;
+        }
         body {
             margin: 0;
             padding: 0;
@@ -21,6 +24,8 @@
     </style>
 </head>
 <body>
+    <p>Current number of faces:</p>
+    <p id="current_faces">0</p>
     <video id="videoInput" width="720" height="550" muted controls>
 
     <script defer async src="./js/face-api.min.js"></script>

@@ -1,5 +1,6 @@
 const video = document.getElementById('videoInput')
 
+
 Promise.all([
     faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
     faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
@@ -43,6 +44,8 @@ async function recognizeFaces() {
            
             const resizedDetections = faceapi.resizeResults(detections, displaySize)
 
+            document.getElementById("current_faces").innerText = resizedDetections.length;  
+
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
 
             const results = resizedDetections.map((d) => {
@@ -53,7 +56,6 @@ async function recognizeFaces() {
               
                 const box = resizedDetections[i].detection.box
                 const gender = resizedDetections[i].gender;
-                console.log(gender);
                 result._distance = (100 - (result._distance * 100)).toFixed(2).toString() + "%" ;
                 const drawBox = new faceapi.draw.DrawBox(box, { label: result._label + " | " + result._distance + " | " + gender })
                
