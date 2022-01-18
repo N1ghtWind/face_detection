@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <title>Face Recognition</title>
     <style>
         p {
@@ -24,8 +28,8 @@
     </style>
 </head>
 <body>
-    <p>Current number of faces:</p>
-    <p id="current_faces">0</p>
+    <h1>Face Detection</h1>
+    <span id="curr">Current number of faces:</span><span id="curr">0</span>
     <video id="videoInput" width="720" height="550" muted controls>
 
     <script defer async src="./js/face-api.min.js"></script>
