@@ -1,0 +1,20 @@
+{
+  "name": "face-recognition-video",
+  "version": "1.0.0",
+  "description": "Face Reconition from Video using face-api.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js -L -e js,html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JK",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "faceapi": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
